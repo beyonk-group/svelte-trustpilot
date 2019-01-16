@@ -1,0 +1,32 @@
+{
+  "name": "@beyonk/svelte-trustpilot",
+  "version": "0.0.0",
+  "svelte": "src/Trustpilot.html",
+  "module": "index.mjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "rollup": "^1.1.0",
+    "rollup-plugin-svelte": "^5.0.1",
+    "svelte": "^2.16.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/beyonk-adventures/svelte-trustpilot.git"
+  },
+  "keywords": [
+    "svelte",
+    "trustpilot",
+    "widget",
+    "reviews",
+    "SEO"
+  ],
+  "files": [
+    "src",
+    "index.mjs",
+    "index.js"
+  ]
+}

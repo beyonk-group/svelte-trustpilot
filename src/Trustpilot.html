@@ -1,0 +1,64 @@
+<div class="trustpilot-widget" class:hidden="hidden" data-locale="en-GB" data-template-id="{templateId}" data-businessunit-id="{businessUnit}" data-style-height="{height}" data-style-width="{width}" data-theme="{theme}">
+  <a href="https://uk.trustpilot.com/review/{domain}" target="_blank">Trustpilot</a>
+</div>
+<style>
+  .trustpilot-widget {
+    margin: 24px 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const provider = 'BEYONK'
+
+  export default {
+    data () {
+      return {
+        hidden: true,
+        lib: '@beyonk/svelte-trustpilot',
+        businessUnit: undefined,
+        widget: 'micro-star',
+        version: 'v5',
+        height: '500px',
+        width: '100%',
+        theme: 'dark',
+        domain: undefined
+      }
+    },
+
+    async oncreate () {
+      const { lib } = this.get()
+      window[provider] = window[provider] || {}
+      window[provider][lib] = window[provider][lib] || {}
+      if (!window[provider][lib].loaded) {
+        await this.addTag()
+        this.set({ hidden: false })
+      }
+    },
+
+    methods: {
+      addTag () {
+        const { version } = this.get()
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.onload = resolve
+          script.onerror = reject
+          script.async = true
+          script.src = `//widget.trustpilot.com/bootstrap/${version}/tp.widget.bootstrap.js`
+          document.body.appendChild(script)
+        })
+      }
+    },
+    computed: {
+      templateId ({ widget }) {
+        return {
+          'micro-star': '5419b732fbfb950b10de65e5',
+          'list': '539ad60defb9600b94d7df2c'
+        }[widget]
+      } 
+    }
+  }
+</script>
