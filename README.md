@@ -9,7 +9,7 @@
 
 Pure vanilla JS Trustpilot integration
 
-![Trustpilot](![trustpilot](https://user-images.githubusercontent.com/218949/51251143-80e53200-1990-11e9-8aa0-e05e9bf19bcb.png) "Trustpilot")
+![trustpilot](https://user-images.githubusercontent.com/218949/51251849-2ea51080-1992-11e9-8683-d46ea7aa8bf6.png)
 
 ## Install
 
