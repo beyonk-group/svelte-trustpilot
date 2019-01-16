@@ -33,7 +33,7 @@ $ npm install --save-dev @beyonk/svelte-trustpilot
 </script>
 ```
 
-The attributes you pass to the Trusilot component are listed below, but you need `domain` and `businessId` at a minimum.
+The attributes you pass to the Trusilot component are listed below, but you need `domain` and `businessUnit` at a minimum.
 
 ## Usage (Vanilla JS)
 
@@ -62,6 +62,8 @@ List of possible options in the module:
 | Option            | Default      | Required | Description                                                                                                                           |
 |-------------------|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------|
 | widget            | micro-star   | false    | Widget type as per [https://businessapp.b2b.trustpilot.com/?locale=en-US#/integrations/trustbox/library](Trustpilot Trustbox library) |
+| domain            | -            | true     | Sets the domain/product name on Trustpilot (for the link when a user clicks your widget)                                              |
+| businessUnit      | -            | true     | Sets `data-businessunit-id` as per docs                                                                                               |
 | width             | 100%         | false    | Sets `data-style-width` as per docs                                                                                                   |
 | height            | 500px        | false    | Sets `data-style-height` as per docs                                                                                                  |
 | theme             | dark         | false    | Sets `data-theme` as per Trustpilot docs                                                                                              |
