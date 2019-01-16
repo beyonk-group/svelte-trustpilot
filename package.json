@@ -1,6 +1,6 @@
 {
   "name": "@beyonk/svelte-trustpilot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "svelte": "src/Trustpilot.html",
   "module": "index.mjs",
   "main": "index.js",
@@ -14,8 +14,8 @@
     "svelte": "^2.16.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/beyonk-adventures/svelte-trustpilot.git"
+    "type": "git",
+    "url": "https://github.com/beyonk-adventures/svelte-trustpilot.git"
   },
   "keywords": [
     "svelte",
