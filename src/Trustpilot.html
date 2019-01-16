@@ -1,4 +1,4 @@
-<div class="trustpilot-widget" class:hidden="hidden" data-locale="en-GB" data-template-id="{templateId}" data-businessunit-id="{businessUnit}" data-style-height="{height}" data-style-width="{width}" data-theme="{theme}">
+<div ref:widget class="trustpilot-widget" class:hidden="hidden" data-locale="en-GB" data-template-id="{templateId}" data-businessunit-id="{businessUnit}" data-style-height="{height}" data-style-width="{width}" data-theme="{theme}">
   <a href="https://uk.trustpilot.com/review/{domain}" target="_blank">Trustpilot</a>
 </div>
 <style>
@@ -37,6 +37,7 @@
         await this.addTag()
         this.set({ hidden: false })
       }
+      window['Trustpilot'].loadFromElement(this.refs.widget)
     },
 
     methods: {
@@ -52,6 +53,7 @@
         })
       }
     },
+
     computed: {
       templateId ({ widget }) {
         return {
