@@ -61,7 +61,7 @@ List of possible options in the module:
 
 | Option            | Default      | Required | Description                                                                                                                           |
 |-------------------|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------|
-| widget            | micro-star   | false    | Widget type as per [https://businessapp.b2b.trustpilot.com/?locale=en-US#/integrations/trustbox/library](Trustpilot Trustbox library) |
+| widget (1)        | micro-star   | false    | Widget type as per [https://businessapp.b2b.trustpilot.com/?locale=en-US#/integrations/trustbox/library](Trustpilot Trustbox library) |
 | domain            | -            | true     | Sets the domain/product name on Trustpilot (for the link when a user clicks your widget)                                              |
 | businessUnit      | -            | true     | Sets `data-businessunit-id` as per docs                                                                                               |
 | width             | 100%         | false    | Sets `data-style-width` as per docs                                                                                                   |
@@ -69,6 +69,13 @@ List of possible options in the module:
 | theme             | dark         | false    | Sets `data-theme` as per Trustpilot docs                                                                                              |
 | lib               | package-name | false    | Unique id to determine if component is loaded. You probably don't need to change this.                                                |
 | version           | v5           | false    | Trustpilot SDK version (best not to change)                                                                                           |
+| * (2)             | -            | false    | Pass any other parameter you want here. See below.                                                                                    |
+
+1) You can pass any widget template name in its hyphenated form, or, just pass the template id here instead. You can get the template id from the trustpilot integration url:
+
+`https://businessapp.b2b.trustpilot.com/?locale=en-US#/integrations/trustbox/configuration/<widget-id-is-here>`
+
+2) You can pass any `data-` attribute you normally pass to Trustpilot's widgets. These will be passed verbatim to the underlying widget HTML.
 
 ## License
 

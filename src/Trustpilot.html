@@ -1,4 +1,4 @@
-<div ref:widget class="trustpilot-widget" class:hidden="hidden" data-locale="en-GB" data-template-id="{templateId}" data-businessunit-id="{businessUnit}" data-style-height="{height}" data-style-width="{width}" data-theme="{theme}">
+<div ref:widget class="trustpilot-widget" class:hidden="hidden" {...props} data-locale="en-GB" data-template-id="{templateId}" data-businessunit-id="{businessUnit}" data-style-height="{height}" data-style-width="{width}" data-theme="{theme}">
   <a href="https://uk.trustpilot.com/review/{domain}" target="_blank">Trustpilot</a>
 </div>
 <style>
@@ -30,6 +30,7 @@
     },
 
     async oncreate () {
+      this.gatherExtraProps()
       const { lib } = this.get()
       window[provider] = window[provider] || {}
       window[provider][lib] = window[provider][lib] || {}
@@ -51,6 +52,19 @@
           script.src = `//widget.trustpilot.com/bootstrap/${version}/tp.widget.bootstrap.js`
           document.body.appendChild(script)
         })
+      },
+
+      gatherExtraProps () {
+        const state = this.get()
+        const props = Object
+          .keys(state)
+          .reduce((acc, next) => {
+            if (next.indexOf('data-') === 0) {
+              acc[next] = state[next]
+            }
+            return acc
+          }, {})
+        this.set({ props })
       }
     },
 
@@ -58,8 +72,15 @@
       templateId ({ widget }) {
         return {
           'micro-star': '5419b732fbfb950b10de65e5',
-          'list': '539ad60defb9600b94d7df2c'
-        }[widget]
+          'list': '539ad60defb9600b94d7df2c',
+          'micro-button': '5419b757fa0340045cd0c938',
+          'micro-combo': '5419b6ffb0d04a076446a9af',
+          'micro-review-count': '5419b6a8b0d04a076446a9ad',
+          'micro-trustscore': '5419b637fa0340045cd0c936',
+          'mini': '53aa8807dec7e10d38f59f32',
+          'review-collector': '56278e9abfbbba0bdcd568bc',
+          'starter': '5613c9cde69ddc09340c6beb'
+        }[widget] || widget
       } 
     }
   }
