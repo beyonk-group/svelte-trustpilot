@@ -1,6 +1,19 @@
-<div ref:widget class="trustpilot-widget" class:hidden="hidden" {...props} data-locale="en-GB" data-template-id="{templateId}" data-businessunit-id="{businessUnit}" data-style-height="{height}" data-style-width="{width}" data-theme="{theme}">
-  <a href="https://uk.trustpilot.com/review/{domain}" target="_blank">Trustpilot</a>
+<div 
+  style="width: {width}; height: {height};"
+  ref:widget
+  class="trustpilot-widget"
+  class:hidden="hidden"
+  {...props}
+  data-locale="en-GB"
+  data-template-id={templateId(widget)}
+  data-businessunit-id="{businessUnit}"
+  data-style-height="{height}"
+  data-style-width="{width}"
+  data-theme="{theme}"
+  >
+    <a href="https://uk.trustpilot.com/review/{domain}" target="_blank">Trustpilot</a>
 </div>
+
 <style>
   .trustpilot-widget {
     margin: 24px 0;
@@ -12,48 +25,41 @@
 </style>
 
 <script>
-  const provider = 'BEYONK'
+  import loader from '@beyonk/async-script-loader'
+  const globalName = 'Trustpilot'
 
   export default {
+    props: ['height', 'width', 'widget', 'businessUnit', 'domain'],
+  
     data () {
       return {
         hidden: true,
-        lib: '@beyonk/svelte-trustpilot',
         businessUnit: undefined,
         widget: 'micro-star',
         version: 'v5',
         height: '500px',
         width: '100%',
         theme: 'dark',
-        domain: undefined
+        domain: undefined,
+        props: {}
       }
     },
 
     async oncreate () {
       this.gatherExtraProps()
-      const { lib } = this.get()
-      window[provider] = window[provider] || {}
-      window[provider][lib] = window[provider][lib] || {}
-      if (!window[provider][lib].loaded) {
-        await this.addTag()
-        this.set({ hidden: false })
-      }
-      window['Trustpilot'].loadFromElement(this.refs.widget)
+      const { version } = this.get()
+
+      loader(
+        `//widget.trustpilot.com/bootstrap/${version}/tp.widget.bootstrap.js`,
+        () => { return window.hasOwnProperty(globalName) },
+        () => {
+          this.set({ hidden: false })
+          window[globalName].loadFromElement(this.refs.widget)
+        }
+      )
     },
 
     methods: {
-      addTag () {
-        const { version } = this.get()
-        return new Promise((resolve, reject) => {
-          const script = document.createElement('script')
-          script.onload = resolve
-          script.onerror = reject
-          script.async = true
-          script.src = `//widget.trustpilot.com/bootstrap/${version}/tp.widget.bootstrap.js`
-          document.body.appendChild(script)
-        })
-      },
-
       gatherExtraProps () {
         const state = this.get()
         const props = Object
@@ -68,8 +74,8 @@
       }
     },
 
-    computed: {
-      templateId ({ widget }) {
+    helpers: {
+      templateId (widget) {
         return {
           'micro-star': '5419b732fbfb950b10de65e5',
           'list': '539ad60defb9600b94d7df2c',
