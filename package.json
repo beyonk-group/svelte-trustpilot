@@ -1,7 +1,7 @@
 {
   "name": "@beyonk/svelte-trustpilot",
   "version": "0.1.0",
-  "svelte": "src/Trustpilot.html",
+  "svelte": "src/Trustpilot.svelte",
   "module": "index.mjs",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,9 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "rollup": "^1.1.0",
-    "rollup-plugin-svelte": "^5.0.1",
-    "svelte": "^2.16.0"
+    "rollup": "^1.16.1",
+    "rollup-plugin-svelte": "^5.1.0",
+    "svelte": "^3.5.3"
   },
   "repository": {
     "type": "git",

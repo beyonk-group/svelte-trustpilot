@@ -4,8 +4,7 @@
 
 ## Svelte Trustpilot
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-trustpilot.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-trustpilot)
-
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-trustpilot.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-trustpilot) [![svelte-v2](https://img.shields.io/badge/svelte-v2-orange.svg)](https://v2.svelte.dev) [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
 
 Pure vanilla JS Trustpilot integration
 
@@ -24,12 +23,6 @@ $ npm install --save-dev @beyonk/svelte-trustpilot
 
 <script>
   import Trustpilot from '@beyonk/svelte-trustpilot'
-
-	export default {
-		components: {
-			Trustpilot
-		}
-	}
 </script>
 ```
 
