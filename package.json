@@ -1,6 +1,6 @@
 {
   "name": "@beyonk/svelte-trustpilot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "svelte": "src/Trustpilot.svelte",
   "module": "index.mjs",
   "main": "index.js",
