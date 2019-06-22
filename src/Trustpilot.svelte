@@ -48,7 +48,6 @@
       `//widget.trustpilot.com/bootstrap/${version}/tp.widget.bootstrap.js`,
       () => { return window.hasOwnProperty(globalName) },
       () => {
-        console.log('we', widgetElement)
         hidden = false
         window[globalName].loadFromElement(widgetElement)
       }
