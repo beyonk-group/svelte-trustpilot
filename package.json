@@ -11,7 +11,7 @@
   "devDependencies": {
     "rollup": "^1.16.1",
     "rollup-plugin-svelte": "^5.1.0",
-    "svelte": "^3.5.3"
+    "svelte": "^3.49.0"
   },
   "repository": {
     "type": "git",
